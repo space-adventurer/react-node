@@ -1,10 +1,12 @@
 const express = require('express');
-const app = express();
+
+// Require passport config.
+require('./services/passport');
 
 const PORT = process.env.PORT || 5000;
-
-app.get('/', (req, res) => {
-    res.send({ hi: 'there' });
-});
+const app = express();
+// Pass app to the authRoutes.
+require('./routes/authRoutes')(app);
 
 app.listen(PORT);
+console.log(`Server is running at localhost:${PORT}`);
