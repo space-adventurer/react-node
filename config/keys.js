@@ -1,0 +1,9 @@
+// Figure out what set of credentials to return.
+if (process.env.NODE_ENV === 'production') {
+    // Return production set of keys.
+    module.exports = require('./prod');
+} else {
+    module.exports = require('./dev');
+}
+
+
